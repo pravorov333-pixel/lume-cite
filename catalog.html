@@ -26,8 +26,10 @@
       <a href="index.html#features" class="nav__link">Возможности</a>
       <a href="index.html#pricing" class="nav__link">Тарифы</a>
       <a href="catalog.html" class="nav__link nav__link--active">Каталог</a>
+      <a href="account.html" class="nav__link">Друзья</a>
     </nav>
     <div class="nav__actions">
+      <div id="nav-auth" class="nav-auth"></div>
       <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="icon-btn glass" title="Telegram" aria-label="Telegram">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
       </a>
@@ -67,12 +69,11 @@
 
       <div class="catalog__panels">
         <div class="catalog__panel catalog__panel--active" id="panel-particles" role="tabpanel">
-          <div class="empty-state glass reveal">
-            <div class="empty-state__orb"></div>
-            <h2 class="empty-state__title">Каталог партиклов</h2>
-            <p class="empty-state__badge">In process<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
-            <p class="empty-state__text">Скоро здесь появятся уникальные эффекты. Следи за новостями в Telegram.</p>
+          <div class="market-header reveal">
+            <p class="market-header__text">Партиклы от других игроков. Оплата — в USDT.</p>
+            <a href="sell.html" class="btn btn--primary">Продать свой партикл</a>
           </div>
+          <div class="listing-grid reveal" id="market-grid-particles"></div>
         </div>
         <div class="catalog__panel" id="panel-sounds" role="tabpanel" hidden>
           <div class="empty-state glass reveal">
@@ -83,12 +84,11 @@
           </div>
         </div>
         <div class="catalog__panel" id="panel-configs" role="tabpanel" hidden>
-          <div class="empty-state glass reveal">
-            <div class="empty-state__orb"></div>
-            <h2 class="empty-state__title">Конфиги</h2>
-            <p class="empty-state__badge">In process<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
-            <p class="empty-state__text">Скоро здесь появятся готовые конфиги. Следи за новостями в Telegram.</p>
+          <div class="market-header reveal">
+            <p class="market-header__text">Конфиги от других игроков. Оплата — в USDT.</p>
+            <a href="sell.html" class="btn btn--primary">Продать свой конфиг</a>
           </div>
+          <div class="listing-grid reveal" id="market-grid-configs"></div>
         </div>
         <div class="catalog__panel" id="panel-cosmetics" role="tabpanel" hidden>
           <div class="empty-state glass reveal">
@@ -126,6 +126,23 @@
     <p class="footer__copy">© 2026 Lume Visuals. Все права защищены.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/marketplace.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    if (window.lumeSupabase.isConfigured) {
+      window.lumeMarketplace.loadCategoryGrid("particles");
+      window.lumeMarketplace.loadCategoryGrid("configs");
+    } else {
+      lumeRequireBackendNotice();
+      ["particles", "configs"].forEach((cat) => {
+        document.getElementById(`market-grid-${cat}`).innerHTML =
+          '<p class="friends-empty">Бэкенд не подключён — заполни js/supabase-config.js (см. README).</p>';
+      });
+    }
+  </script>
 </body>
 </html>
