@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lume Visuals — клиент для комфортной игры</title>
+  <meta name="description" content="Lume Visuals — минималистичный клиент: ПВП преимущества, Server Helper, ПВЕ автоматизация и полная кастомизация стиля.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav glass">
+    <a class="nav__brand" href="index.html">
+      <img src="assets/logo.svg" alt="Lume" class="nav__logo">
+      <span class="nav__name">LUME <em>VISUALS</em></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#features" class="nav__link">Возможности</a>
+      <a href="#pricing" class="nav__link">Тарифы</a>
+      <a href="catalog.html" class="nav__link">Каталог</a>
+    </nav>
+    <div class="nav__actions">
+      <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="icon-btn glass" title="Telegram" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      </a>
+      <a href="https://tiktok.com/@lume_client" target="_blank" rel="noopener" class="icon-btn glass" title="TikTok" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+      </a>
+      <button id="theme-toggle" class="icon-btn glass" title="Сменить тему" aria-label="Сменить тему">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero__logo-wrap reveal">
+        <img src="assets/logo.svg" alt="Логотип Lume" class="hero__logo">
+      </div>
+      <h1 class="hero__title reveal">LUME <span class="hero__title-accent">VISUALS</span></h1>
+      <p class="hero__tagline reveal">
+        <span id="typed-text"></span><span class="hero__caret"></span>
+      </p>
+      <div class="hero__cta reveal">
+        <a href="#pricing" class="btn btn--primary">Выбрать тариф</a>
+        <a href="#features" class="btn btn--ghost glass">Возможности</a>
+      </div>
+      <div class="hero__scroll reveal" aria-hidden="true">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="section" id="features">
+      <h2 class="section__title reveal">Возможности клиента</h2>
+      <p class="section__subtitle reveal">Всё, что нужно для комфортной и красивой игры — в одном клиенте.</p>
+
+      <div class="features-grid">
+        <article class="card glass reveal">
+          <div class="card__icon" style="--icon-hue: var(--accent)">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg>
+          </div>
+          <h3 class="card__title">ПВП преимущество</h3>
+          <ul class="card__list">
+            <li>Друзья — не потеряй своих в бою</li>
+            <li>Фаст метки — мгновенная коммуникация</li>
+            <li>Плавность — стабильный FPS без фризов</li>
+            <li>Кастомизация для комфортной игры</li>
+          </ul>
+        </article>
+
+        <article class="card glass reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/><path d="M7 8h4m-4 4h7"/></svg>
+          </div>
+          <h3 class="card__title">Server Helper</h3>
+          <ul class="card__list">
+            <li>Список ивентов сервера</li>
+            <li>Метки на ивенты — не пропусти важное</li>
+            <li>Item Helper — быстрый доступ к предметам</li>
+          </ul>
+        </article>
+
+        <article class="card glass reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M5 8a7 7 0 1 0 14 0"/><circle cx="12" cy="15" r="7"/><path d="M12 12v3l2 2"/></svg>
+          </div>
+          <h3 class="card__title">ПВЕ автоматизация</h3>
+          <ul class="card__list">
+            <li>Автокликер — фарм без усталости</li>
+            <li>Авто команды — рутина на автопилоте</li>
+            <li>Авто Eat — никогда не умирай от голода</li>
+          </ul>
+        </article>
+
+        <article class="card glass reveal">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.68-.75 1.68-1.68 0-.44-.16-.84-.44-1.15-.27-.3-.43-.7-.43-1.13a1.68 1.68 0 0 1 1.68-1.68h1.98A5.53 5.53 0 0 0 22 10.83C22 5.94 17.5 2 12 2z"/></svg>
+          </div>
+          <h3 class="card__title">Полная кастомизация стиля</h3>
+          <ul class="card__list">
+            <li>Свои партиклы — уникальные эффекты</li>
+            <li>Свои звуки — озвучь клиент по-своему</li>
+            <li>Цвета клиента — любая палитра</li>
+            <li>Стили — интерфейс под твой вкус</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="section" id="pricing">
+      <h2 class="section__title reveal">Наши тарифы</h2>
+      <p class="section__subtitle reveal">Один клиент — все возможности. Выбирай срок подписки.</p>
+
+      <div class="pricing-grid">
+        <article class="price-card glass reveal">
+          <h3 class="price-card__period">1 месяц</h3>
+          <div class="price-card__price">$2.49</div>
+          <p class="price-card__note">Попробовать всё</p>
+          <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="btn btn--ghost glass price-card__btn">Купить</a>
+        </article>
+
+        <article class="price-card glass reveal">
+          <h3 class="price-card__period">3 месяца</h3>
+          <div class="price-card__price">$3.99</div>
+          <p class="price-card__note">≈ $1.33 в месяц</p>
+          <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="btn btn--ghost glass price-card__btn">Купить</a>
+        </article>
+
+        <article class="price-card glass price-card--popular reveal">
+          <div class="price-card__badge">Популярный</div>
+          <h3 class="price-card__period">Год</h3>
+          <div class="price-card__price">$12.99</div>
+          <p class="price-card__note">≈ $1.08 в месяц</p>
+          <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="btn btn--primary price-card__btn">Купить</a>
+        </article>
+
+        <article class="price-card glass price-card--best reveal">
+          <div class="price-card__badge price-card__badge--gold">Лучшая цена</div>
+          <h3 class="price-card__period">Навсегда</h3>
+          <div class="price-card__price">$19.99</div>
+          <p class="price-card__note">Один раз — и навсегда</p>
+          <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="btn btn--primary price-card__btn">Купить</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section cta-section">
+      <div class="cta glass reveal">
+        <h2 class="cta__title">Готов играть красиво?</h2>
+        <p class="cta__text">Подписывайся на наши соцсети — новости, обновления и розыгрыши подписок.</p>
+        <div class="cta__buttons">
+          <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            Telegram
+          </a>
+          <a href="https://tiktok.com/@lume_client" target="_blank" rel="noopener" class="btn btn--ghost glass">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            TikTok
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer glass">
+    <div class="footer__inner">
+      <a class="footer__brand" href="index.html">
+        <img src="assets/logo.svg" alt="Lume" width="28" height="28">
+        <span>LUME VISUALS</span>
+      </a>
+      <nav class="footer__links">
+        <a href="#features">Возможности</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="catalog.html">Каталог</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://telegram.me/+iTX6597n68UyYTJi" target="_blank" rel="noopener" class="icon-btn glass" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@lume_client" target="_blank" rel="noopener" class="icon-btn glass" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 Lume Visuals. Все права защищены.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
