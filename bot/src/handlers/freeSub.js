@@ -9,11 +9,13 @@ import { render } from "../utils/render.js";
 const SUBSCRIBED_STATUSES = new Set(["creator", "administrator", "member"]);
 
 async function isSubscribed(ctx, channel) {
+  if (!channel.id) return false; // CHANNEL_*_ID not configured yet — see .env.example
+
   try {
-    const member = await ctx.telegram.getChatMember(channel, ctx.from.id);
+    const member = await ctx.telegram.getChatMember(channel.id, ctx.from.id);
     return SUBSCRIBED_STATUSES.has(member.status);
   } catch {
-    // bot not admin in the channel, channel not found, user never interacted, etc.
+    // bot not a member/admin of the channel, wrong id, user never interacted, etc.
     return false;
   }
 }
@@ -21,8 +23,8 @@ async function isSubscribed(ctx, channel) {
 const CHANNELS_TEXT = `🎁 *Бесплатная подписка*
 
 Чтобы продолжить, подпишись на два канала:
-📢 ${config.channel1}
-📢 ${config.channel2}
+📢 ${config.channel1.name}
+📢 ${config.channel2.name}
 
 Потом нажми «Я подписался, проверить».`;
 

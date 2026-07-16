@@ -10,8 +10,11 @@ export async function usdToTon(usdAmount) {
   return Math.ceil((usdAmount / rate) * 100) / 100;
 }
 
+// Fetched on demand (only when someone actually opens the TON payment
+// screen) and cached for 1 minute — same freshness as polling every
+// minute, without spending API calls while nobody is buying anything.
 async function getTonUsdRate() {
-  if (cachedTonRate && Date.now() - cachedAt < 5 * 60 * 1000) return cachedTonRate;
+  if (cachedTonRate && Date.now() - cachedAt < 60 * 1000) return cachedTonRate;
 
   try {
     const res = await fetch(

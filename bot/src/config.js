@@ -15,8 +15,20 @@ export const config = {
   supabaseUrl: required("SUPABASE_URL"),
   supabaseServiceRoleKey: required("SUPABASE_SERVICE_ROLE_KEY"),
 
-  channel1: process.env.CHANNEL_1 || "@LumeVisuals",
-  channel2: process.env.CHANNEL_2 || "@OneCrypto",
+  // Both required channels are private (invite-link only, no @username),
+  // so getChatMember() needs the numeric chat id, not the link. The link
+  // is only used for the "join" button. See .env.example for how to get
+  // the numeric id (CHANNEL_1_ID / CHANNEL_2_ID).
+  channel1: {
+    id: process.env.CHANNEL_1_ID || null,
+    url: process.env.CHANNEL_1_URL || "https://t.me/+iTX6597n68UyYTJi",
+    name: process.env.CHANNEL_1_NAME || "LumeVisuals",
+  },
+  channel2: {
+    id: process.env.CHANNEL_2_ID || null,
+    url: process.env.CHANNEL_2_URL || "https://t.me/+oH_SdoyHrWk1NDli",
+    name: process.env.CHANNEL_2_NAME || "OneCrypto",
+  },
 
   telegramChannelUrl: process.env.TELEGRAM_CHANNEL_URL || "https://telegram.me/+iTX6597n68UyYTJi",
   tiktokUrl: process.env.TIKTOK_URL || "https://tiktok.com/@lume_client",
@@ -46,3 +58,10 @@ export const config = {
     lifetime: "Навсегда",
   },
 };
+
+if (!config.channel1.id || !config.channel2.id) {
+  console.warn(
+    "⚠️  CHANNEL_1_ID / CHANNEL_2_ID не заданы — проверка подписки на приватные каналы всегда будет " +
+      "возвращать «не подписан». См. .env.example, раздел про CHANNEL_*_ID."
+  );
+}

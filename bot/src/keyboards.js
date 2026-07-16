@@ -16,16 +16,9 @@ export const backToMenu = Markup.inlineKeyboard([
 ]);
 
 export function channelsKeyboard() {
-  const url1 = config.channel1.startsWith("@")
-    ? `https://t.me/${config.channel1.slice(1)}`
-    : config.channel1;
-  const url2 = config.channel2.startsWith("@")
-    ? `https://t.me/${config.channel2.slice(1)}`
-    : config.channel2;
-
   return Markup.inlineKeyboard([
-    [Markup.button.url(`📢 ${config.channel1}`, url1)],
-    [Markup.button.url(`📢 ${config.channel2}`, url2)],
+    [Markup.button.url(`📢 ${config.channel1.name}`, config.channel1.url)],
+    [Markup.button.url(`📢 ${config.channel2.name}`, config.channel2.url)],
     [Markup.button.callback("✅ Я подписался, проверить", "check_subs")],
     [Markup.button.callback("⬅️ Главное меню", "main_menu")],
   ]);
