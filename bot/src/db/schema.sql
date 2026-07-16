@@ -25,7 +25,7 @@ alter table public.bot_users enable row level security;
 create table public.free_task_submissions (
   id uuid primary key default gen_random_uuid(),
   telegram_id bigint not null references public.bot_users(telegram_id) on delete cascade,
-  category text not null check (category in ('review', 'comments', 'video')),
+  category text not null check (category in ('review', 'video')),
   photo_file_ids text[] not null default '{}',
   note text,
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),

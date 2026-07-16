@@ -6,13 +6,11 @@ import { supabase } from "../supabase.js";
 
 const CATEGORY_LABEL = {
   review: "⭐ Обзор (90 дней)",
-  comments: "💬 Комментарии (14 дней)",
   video: "🎬 Видео (14 дней)",
 };
 
 const CATEGORY_DAYS = {
   review: config.freeTaskDays.reviewVideo,
-  comments: config.freeTaskDays.comments,
   video: config.freeTaskDays.quickVideo,
 };
 
@@ -95,10 +93,6 @@ export function registerSubmitProof(bot) {
   bot.action("proof_review", async (ctx) => {
     await ctx.answerCbQuery();
     await ctx.scene.enter("collect_proof", { category: "review" });
-  });
-  bot.action("proof_comments", async (ctx) => {
-    await ctx.answerCbQuery();
-    await ctx.scene.enter("collect_proof", { category: "comments" });
   });
   bot.action("proof_video", async (ctx) => {
     await ctx.answerCbQuery();

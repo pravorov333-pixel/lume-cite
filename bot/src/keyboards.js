@@ -24,21 +24,14 @@ export function channelsKeyboard() {
   ]);
 }
 
-export const taskChoiceKeyboard = Markup.inlineKeyboard([
-  [Markup.button.callback("💬 Комментарии в TikTok", "task_comments")],
-  [Markup.button.callback("🎬 Снять видео", "task_video")],
-  [Markup.button.callback("⬅️ Главное меню", "main_menu")],
-]);
-
 export const videoChoiceKeyboard = Markup.inlineKeyboard([
   [Markup.button.callback("⚡ Любое видео — 14 дней", "task_video_quick")],
   [Markup.button.callback("⭐ Полный обзор — 90 дней", "task_video_review")],
-  [Markup.button.callback("⬅️ Назад", "task_video_back")],
+  [Markup.button.callback("⬅️ Главное меню", "main_menu")],
 ]);
 
 export const proofCategoryKeyboard = Markup.inlineKeyboard([
   [Markup.button.callback("⭐ Обзор", "proof_review")],
-  [Markup.button.callback("💬 Комментарии", "proof_comments")],
   [Markup.button.callback("🎬 Видео", "proof_video")],
   [Markup.button.callback("⬅️ Главное меню", "main_menu")],
 ]);

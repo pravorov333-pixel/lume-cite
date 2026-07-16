@@ -1,9 +1,5 @@
 import { config } from "../config.js";
-import {
-  channelsKeyboard,
-  taskChoiceKeyboard,
-  videoChoiceKeyboard,
-} from "../keyboards.js";
+import { channelsKeyboard, videoChoiceKeyboard } from "../keyboards.js";
 import { render } from "../utils/render.js";
 
 const SUBSCRIBED_STATUSES = new Set(["creator", "administrator", "member"]);
@@ -28,24 +24,9 @@ const CHANNELS_TEXT = `🎁 *Бесплатная подписка*
 
 Потом нажми «Я подписался, проверить».`;
 
-const TASK_CHOICE_TEXT = `Отлично, подписка на каналы подтверждена ✅
+const VIDEO_CHOICE_TEXT = `Отлично, подписка на каналы подтверждена ✅
 
-Выбери, как получить бесплатную подписку:
-
-💬 *Комментарии в TikTok* — быстро, подписка на ${config.freeTaskDays.comments} дней.
-🎬 *Снять видео* — подписка до 90 дней в зависимости от формата.`;
-
-const COMMENTS_TEXT = `💬 *Задание «Комментарии»*
-
-1. Найди в TikTok 15 видео с визуалами других клиентов.
-2. Под каждым оставь комментарий в духе «LumeVisuals лучше» — так, чтобы он набрал *минимум 1 лайк*.
-3. Поставь нашу ссылку в шапку профиля Telegram — она должна оставаться там всё время действия подписки.
-
-⚠️ Если уберёшь ссылку раньше срока — подписка может быть аннулирована.
-
-Награда: *${config.freeTaskDays.comments} дней* подписки.
-
-Когда всё сделаешь — вернись в главное меню и нажми «✅ Я выполнил задания», выбери «Комментарии» и пришли скриншоты.`;
+Сними видео про LumeVisuals и выбери формат:`;
 
 const VIDEO_QUICK_TEXT = `⚡ *Любое видео — 14 дней*
 
@@ -80,7 +61,7 @@ export function registerFreeSub(bot) {
     ]);
 
     if (sub1 && sub2) {
-      await render(ctx, TASK_CHOICE_TEXT, taskChoiceKeyboard);
+      await render(ctx, VIDEO_CHOICE_TEXT, videoChoiceKeyboard);
     } else {
       await render(
         ctx,
@@ -90,19 +71,9 @@ export function registerFreeSub(bot) {
     }
   });
 
-  bot.action("task_comments", async (ctx) => {
+  bot.action("video_choice", async (ctx) => {
     await ctx.answerCbQuery();
-    await render(ctx, COMMENTS_TEXT, taskBackKeyboard());
-  });
-
-  bot.action("task_video", async (ctx) => {
-    await ctx.answerCbQuery();
-    await render(ctx, "🎬 Выбери формат видео:", videoChoiceKeyboard);
-  });
-
-  bot.action("task_video_back", async (ctx) => {
-    await ctx.answerCbQuery();
-    await render(ctx, TASK_CHOICE_TEXT, taskChoiceKeyboard);
+    await render(ctx, VIDEO_CHOICE_TEXT, videoChoiceKeyboard);
   });
 
   bot.action("task_video_quick", async (ctx) => {
@@ -120,7 +91,7 @@ function taskBackKeyboard() {
   return {
     reply_markup: {
       inline_keyboard: [
-        [{ text: "⬅️ К выбору задания", callback_data: "check_subs" }],
+        [{ text: "⬅️ К выбору формата", callback_data: "video_choice" }],
         [{ text: "⬅️ Главное меню", callback_data: "main_menu" }],
       ],
     },
