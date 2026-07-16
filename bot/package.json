@@ -1,0 +1,17 @@
+{
+  "name": "lume-visuals-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Telegram bot for Lume Visuals: free subscriptions, key sales, support.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
