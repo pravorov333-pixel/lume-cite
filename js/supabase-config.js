@@ -7,8 +7,8 @@
       Project Settings → API, and paste them below.
    ============================================================ */
 
-window.LUME_SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-window.LUME_SUPABASE_ANON_KEY = "YOUR-ANON-PUBLIC-KEY";
+window.LUME_SUPABASE_URL = "https://kgqzhpxiohduojbgcxzc.supabase.co";
+window.LUME_SUPABASE_ANON_KEY = "sb_publishable_9pwh9OlykaW5aKs5E-1Shg_U0D4XQCw";
 
 /* USDT (TRC20) wallet address that buyers send payment to.
    Orders are confirmed manually — see README "Маркетплейс и оплата". */
