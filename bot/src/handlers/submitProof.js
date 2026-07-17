@@ -5,8 +5,8 @@ import { render } from "../utils/render.js";
 import { supabase } from "../supabase.js";
 
 const CATEGORY_LABEL = {
-  review: "⭐ Обзор (90 дней)",
-  video: "🎬 Видео (14 дней)",
+  review: `⭐ Обзор (${config.freeTaskDays.reviewVideo} дней)`,
+  video: `🎬 Видео (${config.freeTaskDays.quickVideo} дней)`,
 };
 
 const CATEGORY_DAYS = {

@@ -25,8 +25,8 @@ export function channelsKeyboard() {
 }
 
 export const videoChoiceKeyboard = Markup.inlineKeyboard([
-  [Markup.button.callback("⚡ Любое видео — 14 дней", "task_video_quick")],
-  [Markup.button.callback("⭐ Полный обзор — 90 дней", "task_video_review")],
+  [Markup.button.callback(`⚡ Любое видео — ${config.freeTaskDays.quickVideo} дней`, "task_video_quick")],
+  [Markup.button.callback(`⭐ Полный обзор — ${config.freeTaskDays.reviewVideo} дней`, "task_video_review")],
   [Markup.button.callback("⬅️ Главное меню", "main_menu")],
 ]);
 

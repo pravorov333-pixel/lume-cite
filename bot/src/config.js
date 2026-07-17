@@ -39,7 +39,7 @@ export const config = {
   usdcErc20Wallet: process.env.USDC_ERC20_WALLET || "0x45266e7d59969a8df9c54cd1f85078c6b2469e41",
 
   freeTaskDays: {
-    quickVideo: Number(process.env.FREE_TASK_QUICK_VIDEO_DAYS || 14),
+    quickVideo: Number(process.env.FREE_TASK_QUICK_VIDEO_DAYS || 30),
     reviewVideo: Number(process.env.FREE_TASK_REVIEW_VIDEO_DAYS || 90),
   },
 
